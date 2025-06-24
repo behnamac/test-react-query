@@ -8,11 +8,18 @@ export interface User {
 }
 
 const useUser = () => {
-  const {data:users, isLoading, error} = useQuery({
+  const {
+    data: users,
+    isLoading,
+    error,
+  } = useQuery({
     queryKey: ["users"],
-    queryFn: () => axios.get<User[]>("https://jsonplaceholder.typicode.com/users").then(res => res.data)
-  })
-  
+    queryFn: () =>
+      axios
+        .get<User[]>("https://jsonplaceholder.typicode.com/users")
+        .then((res) => res.data),
+    staleTime: 10_000,
+  });
 
   return { data: users, isLoading, error };
 };

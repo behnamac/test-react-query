@@ -1,9 +1,11 @@
-import UserList from './layouts/UserList'
+import User from "./layouts/User";
 
 const App = () => {
   return (
-    <div><UserList/></div>
-  )
-}
+    <div>
+      <User />
+    </div>
+  );
+};
 
-export default App
+export default App;
