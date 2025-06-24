@@ -16,8 +16,20 @@ const Pagination = () => {
           return <li key={post.id}>{post.title}</li>;
         })}
       </ul>
-      <button id="button">Previews</button>
-      <button id="button">Next</button>
+      <button
+        id="button"
+        disabled={page === 1}
+        onClick={() => setPage(page - 1)}
+      >
+        Previews
+      </button>
+      <button
+        id="button"
+        disabled={page === pageSize}
+        onClick={() => setPage(page + 1)}
+      >
+        Next
+      </button>
     </div>
   );
 };

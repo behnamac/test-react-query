@@ -11,7 +11,12 @@
   width: 5rem;
   cursor: pointer;
 }
-#button:hover{
+#button:hover {
   color: black;
   background-color: aliceblue;
+}
+#button:disabled {
+  background-color: rgb(188, 188, 188);
+  color: white;
+  cursor: not-allowed;
 }
