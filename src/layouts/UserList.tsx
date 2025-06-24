@@ -1,34 +1,16 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-
-interface User {
-  id: number;
-  name: string;
-  email: string;
-}
+import useUser from "../hooks/useUser";
+import type { User } from "../hooks/useUser";
 
 const UserList = () => {
-  const [users, setUsers] = useState<User[]>([]);
-
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const response = await axios.get<User[]>(
-          "https://jsonplaceholder.typicode.com/users"
-        );
-        setUsers(response.data);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-
-    fetchUsers(); // Call the function once on mount
-  }, []);
+  const { data: users, isLoading, error } = useUser();
 
   return (
     <div>
+      {isLoading && <div>Loading...</div>}
+      {error && <div>Error: {error.message} please try again</div>}
+      <h1>Users</h1>
       <ul>
-        {users.map((user: User) => (
+        {users?.map((user: User) => (
           <li key={user.id}>{user.name}</li>
         ))}
       </ul>
