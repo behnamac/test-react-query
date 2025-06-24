@@ -2,3 +2,16 @@
   background-color: black;
   color: antiquewhite;
 }
+#button {
+  color: wheat;
+  background-color: cornflowerblue;
+  padding: 0.5rem;
+  border-radius: 10%;
+  margin: 0 1rem;
+  width: 5rem;
+  cursor: pointer;
+}
+#button:hover{
+  color: black;
+  background-color: aliceblue;
+}

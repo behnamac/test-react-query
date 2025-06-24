@@ -14,7 +14,7 @@ const usePost = (userId: number | undefined) => {
     error,
   } = useQuery({
     //  /users/1/posts
-    queryKey: ["users", userId, "posts"],
+    queryKey: userId?["users", userId, "posts"]:['posts'],
     queryFn: () =>
       axios
         .get<Posts[]>("https://jsonplaceholder.typicode.com/posts", {
