@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
-import type { Posts } from "./usePost";
 
 interface PostQuery {
   page: number;
