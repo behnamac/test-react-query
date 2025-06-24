@@ -30,6 +30,7 @@ const useQueryPost = (query: PostQuery) => {
         })
         .then((res) => res.data),
     staleTime: 1 * 60 * 1000,
+    placeholderData: (previousData) => previousData,
   });
 
   return { data: posts, isLoading, error };
